@@ -1,0 +1,183 @@
+# Arquivos do Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de build
+[Bb]in/
+[Oo]bj/
+
+# Arquivos de usuário específicos do ambiente
+*.userprefs
+*.suo
+*.user
+*.users
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Arquivos de configuração local
+appsettings.Development.json
+appsettings.Local.json
+
+# Logs e bancos de dados
+*.log
+*.sqlite
+*.db
+
+# Pasta de publicação
+publish/
+
+# Pasta de dependências
+node_modules/
+
+# Pasta de pacotes NuGet
+.nuget/
+
+# Pasta de ferramentas locais do .NET Core
+.tools/
+
+# Pasta de saída do Visual Studio
+.vs/
+
+# Arquivos de usuário do Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Arquivos de usuário do Rider
+.idea/
+*.sln.iml
+
+# Arquivos de cache do Visual Studio
+*.vs/
+
+# Arquivos de usuário do Visual Studio
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de usuário do Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Arquivos de usuário do JetBrains Rider
+.idea/
+*.sln.iml
+
+# Arquivos de usuário do Visual Studio para Mac
+*.userprefs
+
+# Arquivos de cache do Visual Studio Code
+.history/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do JetBrains Rider
+.idea/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
+
+# Arquivos de cache do Visual Studio
+.vs/
+
+# Arquivos de cache do Visual Studio para Mac
+.vs/
+
+# Arquivos de cache do Visual Studio Code
+.vscode/
