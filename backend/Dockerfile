@@ -23,6 +23,10 @@ RUN dotnet publish BiblicalArchitecture.API/BiblicalArchitecture.API.csproj -c R
 # Etapa final
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
+
+# Cria a pasta para o banco SQLite
+RUN mkdir -p /app/data
+
 COPY --from=build /app/publish .
 ENV ASPNETCORE_URLS=http://0.0.0.0:8080
 EXPOSE 8080

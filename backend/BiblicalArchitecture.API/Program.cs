@@ -87,6 +87,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
+        await context.Database.EnsureCreatedAsync();
         await ModuloSeedData.Initialize(services);
         loggerFactory.CreateLogger<Program>().LogInformation("Dados iniciais carregados com sucesso!");
     }
