@@ -3,17 +3,17 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copia a solução e os projetos
-COPY BiblicalArchitecture.sln ./
-COPY BiblicalArchitecture.API/BiblicalArchitecture.API.csproj BiblicalArchitecture.API/
-COPY BiblicalArchitecture.Application/BiblicalArchitecture.Application.csproj BiblicalArchitecture.Application/
-COPY BiblicalArchitecture.Domain/BiblicalArchitecture.Domain.csproj BiblicalArchitecture.Domain/
-COPY BiblicalArchitecture.Infrastructure/BiblicalArchitecture.Infrastructure.csproj BiblicalArchitecture.Infrastructure/
+COPY backend/BiblicalArchitecture.sln ./
+COPY backend/BiblicalArchitecture.API/BiblicalArchitecture.API.csproj BiblicalArchitecture.API/
+COPY backend/BiblicalArchitecture.Application/BiblicalArchitecture.Application.csproj BiblicalArchitecture.Application/
+COPY backend/BiblicalArchitecture.Domain/BiblicalArchitecture.Domain.csproj BiblicalArchitecture.Domain/
+COPY backend/BiblicalArchitecture.Infrastructure/BiblicalArchitecture.Infrastructure.csproj BiblicalArchitecture.Infrastructure/
 
 # Restaura dependências
 RUN dotnet restore
 
 # Copia todo o código
-COPY . .
+COPY backend/ .
 
 # Publica a API
 RUN dotnet publish BiblicalArchitecture.API/BiblicalArchitecture.API.csproj -c Release -o /app/publish
