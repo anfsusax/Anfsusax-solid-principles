@@ -1,59 +1,72 @@
-# ArquiteturaBiblicaUi
+# Arquitetura Bíblica UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Interface construída em **Angular 17** que apresenta os princípios SOLID com narrativas bíblicas e módulos de estudo. O aplicativo consome a API hospedada na Railway e é publicado na Vercel.
 
-## Development server
+## 👀 Live
+- Frontend: https://anfsusax-solid-principles.vercel.app
+- API: https://anfsusax-solid-principles-production.up.railway.app/swagger/index.html
 
-To start a local development server, run:
+## ✨ Principais Recursos
+- Catálogo interativo dos princípios SOLID
+- Cards com resumos, explicações passo a passo e trechos bíblicos
+- Exemplo de código formatado em blocos por responsabilidade
+- Página de detalhes com visual responsivo e botão persistente de navegação
+- Detecção automática do endpoint da API (local vs produção)
 
+## 🛠️ Stack
+- Angular 17 (Standalone Components)
+- Angular Material (botões, ícones, spinners)
+- SCSS modular com temas teal/dourado
+- RxJS para integração com a API
+- Deploy na Vercel
+
+## ⚙️ Configuração
 ```bash
-ng serve
+# instalar dependências
+npm install
+
+# ambiente local (frontend em :4200 e API em :5278)
+npm run start
+```
+A aplicação detecta automaticamente o host:
+- Local (`localhost`/`127.0.0.1`) → `http://localhost:5278/api/solid`
+- Produção → `https://anfsusax-solid-principles-production.up.railway.app/api/solid`
+
+## 🧪 Scripts úteis
+```bash
+npm run start       # ng serve com HMR
+npm run build       # build production (saída em dist/arquitetura-biblica-ui/browser)
+npm run test        # testes unitários (Karma)
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## 📁 Estrutura de pastas
+```
+src/
+ ├─ app/
+ │   ├─ components/
+ │   │   ├─ home/             # grade de princípios
+ │   │   └─ principle-detail/ # página detalhada
+ │   ├─ services/
+ │   │   └─ solid-principles.ts
+ │   ├─ shared/
+ │   │   └─ principle-guides.ts
+ │   ├─ app.routes.ts
+ │   └─ app.config.ts
+ └─ styles.scss
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🌐 Deploy na Vercel
+- Root Directory: `frontend/arquitetura-biblica-ui`
+- Output Directory: `dist/arquitetura-biblica-ui/browser`
+- Build Command: `npm run build`
+- Instalação: `npm install`
 
-```bash
-ng generate --help
-```
+Ao alterar a API, garanta que o domínio correspondente esteja liberado no CORS.
 
-## Building
+## 🤝 Contribuindo
+1. `git checkout -b feature/minha-feature`
+2. Faça commits descritivos
+3. Abra um PR explicando o racional e screenshots se possível
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 Licença
+Projeto mantido para fins educacionais. Consulte o autor antes de reutilizar.
