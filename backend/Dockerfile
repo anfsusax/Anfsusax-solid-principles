@@ -2,10 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copia a solução
+# Copia a solução e os projetos
 COPY BiblicalArchitecture.sln ./
-
-# Copia os projetos
 COPY BiblicalArchitecture.API/BiblicalArchitecture.API.csproj BiblicalArchitecture.API/
 COPY BiblicalArchitecture.Application/BiblicalArchitecture.Application.csproj BiblicalArchitecture.Application/
 COPY BiblicalArchitecture.Domain/BiblicalArchitecture.Domain.csproj BiblicalArchitecture.Domain/
@@ -14,17 +12,17 @@ COPY BiblicalArchitecture.Infrastructure/BiblicalArchitecture.Infrastructure.csp
 # Restaura dependências
 RUN dotnet restore
 
-# Copia o restante dos arquivos
+# Copia todo o código
 COPY . .
 
-# Publica a aplicação
+# Publica a API
 RUN dotnet publish BiblicalArchitecture.API/BiblicalArchitecture.API.csproj -c Release -o /app/publish
 
 # Etapa final
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 
-# Cria a pasta para o banco SQLite
+# Cria diretório persistente para o SQLite
 RUN mkdir -p /app/data
 
 COPY --from=build /app/publish .
