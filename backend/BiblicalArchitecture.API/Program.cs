@@ -24,6 +24,23 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "Biblical Architecture API", Version = "v1" });
 });
 
+// Configuração do CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        builder => builder
+            .WithOrigins(
+                "http://localhost:4200",
+                "https://localhost:4200",
+                "http://localhost:4201",
+                "https://localhost:4201"
+            )
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials()
+            .SetIsOriginAllowedToAllowWildcardSubdomains());
+});
+
 // Configuração da injeção de dependência
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplicationServices();
@@ -57,6 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.MapControllers();
 

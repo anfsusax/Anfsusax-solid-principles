@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace BiblicalArchitecture.Domain.Entidades.Solid
 {
     public abstract class PrincipioSolid
@@ -10,8 +13,18 @@ namespace BiblicalArchitecture.Domain.Entidades.Solid
         public string ReferenciaBiblica { get; protected set; }
         public string Versiculo { get; protected set; }
         public string AplicacaoPratica { get; protected set; }
+        public IReadOnlyList<BlocoCodigoResponsabilidade> BlocosCodigo { get; protected set; }
 
-        protected PrincipioSolid(int id, string nome, string sigla, string descricao, string exemploCodigo, string referenciaBiblica, string versiculo, string aplicacaoPratica)
+        protected PrincipioSolid(
+            int id,
+            string nome,
+            string sigla,
+            string descricao,
+            string exemploCodigo,
+            string referenciaBiblica,
+            string versiculo,
+            string aplicacaoPratica,
+            IEnumerable<BlocoCodigoResponsabilidade>? blocosCodigo = null)
         {
             Id = id;
             Nome = nome;
@@ -21,6 +34,7 @@ namespace BiblicalArchitecture.Domain.Entidades.Solid
             ReferenciaBiblica = referenciaBiblica;
             Versiculo = versiculo;
             AplicacaoPratica = aplicacaoPratica;
+            BlocosCodigo = (blocosCodigo ?? Enumerable.Empty<BlocoCodigoResponsabilidade>()).ToList().AsReadOnly();
         }
     }
 }

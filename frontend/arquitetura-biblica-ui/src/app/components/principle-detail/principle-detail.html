@@ -1,0 +1,93 @@
+<div class="detail-wrapper" *ngIf="principio as p; else loadingOrError">
+  <header class="detail-header">
+    <a class="back-link strong" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Voltar para o catálogo e escolher outro princípio</span>
+    </a>
+    <div class="title-group">
+      <span class="sigla">{{ p.sigla }}</span>
+      <div>
+        <h1>{{ p.nome }}</h1>
+        <p class="descricao">{{ p.descricao }}</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h2>Resumo rápido</h2>
+      <div class="chips">
+        <span class="chip" *ngFor="let item of obterResumo(p.sigla)">{{ item }}</span>
+      </div>
+      <section class="guided">
+        <h3>Como estudar este exemplo</h3>
+        <ol>
+          <li *ngFor="let passo of obterPassos(p.sigla)">
+            <strong>{{ passo.titulo }}</strong>
+            <p>{{ passo.descricao }}</p>
+          </li>
+        </ol>
+      </section>
+    </article>
+
+    <article class="info-card">
+      <h2>Coloque em prática</h2>
+      <ul>
+        <li *ngFor="let ideia of obterIdeias(p.sigla)">{{ ideia }}</li>
+      </ul>
+    </article>
+
+    <article class="info-card scripture">
+      <h2>Referência bíblica</h2>
+      <p class="verse">"{{ p.versiculo }}"</p>
+      <p class="reference">{{ p.referenciaBiblica }}</p>
+      <p class="application">{{ p.aplicacaoPratica }}</p>
+    </article>
+  </section>
+
+  <section class="code-section">
+    <h2>Exemplo completo em C#</h2>
+    <p class="code-intro">
+      Leia cada bloco com calma. A ordem em que aparecem representa o fluxo natural do código.
+    </p>
+    <div *ngIf="p.blocosCodigo?.length; else codigoUnico" class="code-stack">
+      <article *ngFor="let bloco of p.blocosCodigo" class="code-card" [ngClass]="classeResponsabilidade(bloco)">
+        <header class="code-card__header">
+          <span class="code-card__role">{{ nomeResponsabilidade(bloco) }}</span>
+          <h3>{{ bloco.titulo }}</h3>
+        </header>
+        <pre><code [textContent]="bloco.codigo"></code></pre>
+        <p *ngIf="bloco.explicacao" class="code-card__description">{{ bloco.explicacao }}</p>
+      </article>
+    </div>
+    <ng-template #codigoUnico>
+      <div class="code-single">
+        <pre><code [textContent]="p.exemploCodigo"></code></pre>
+      </div>
+    </ng-template>
+  </section>
+
+  <footer class="detail-footer">
+    <a class="back-link strong" routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Voltar para o catálogo e escolher outro princípio</span>
+    </a>
+  </footer>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="status" *ngIf="isLoading; else erro">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Carregando princípio...</p>
+  </div>
+  <ng-template #erro>
+    <div class="status status--error">
+      <mat-icon>error_outline</mat-icon>
+      <p>{{ error }}</p>
+      <a class="back-link strong" routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Voltar para o catálogo e escolher outro princípio</span>
+      </a>
+    </div>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,322 @@
+$bg-gradient: linear-gradient(180deg, #f5f9ff 0%, #fafdff 45%, #ffffff 100%);
+$card-bg: #ffffff;
+$accent-teal: #0d9488;
+$accent-teal-light: #5eead4;
+$accent-gold: #f59e0b;
+$text-primary: #1f2937;
+$text-secondary: #475569;
+$text-muted: #64748b;
+$shadow: 0 16px 40px -24px rgba(13, 148, 136, 0.45);
+
+a.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(13, 148, 136, 0.12);
+  color: $accent-teal;
+
+  mat-icon {
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px -20px rgba(13, 148, 136, 0.45);
+  }
+
+  &.strong {
+    background: linear-gradient(135deg, $accent-teal, $accent-gold);
+    color: #fff;
+    box-shadow: 0 18px 34px -20px rgba(13, 148, 136, 0.5);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 38px -22px rgba(13, 148, 136, 0.62);
+    }
+  }
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $bg-gradient;
+  color: $text-primary;
+  padding: 2.5rem 1.5rem 4rem;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+.detail-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  .title-group {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    padding: 1.5rem 1.75rem;
+    background: $card-bg;
+    border-radius: 24px;
+    box-shadow: 0 12px 32px -20px rgba(17, 24, 39, 0.3);
+
+    .sigla {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      background: rgba(13, 148, 136, 0.13);
+      color: $accent-teal;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      color: $text-primary;
+    }
+
+    .descricao {
+      margin: 0.5rem 0 0;
+      color: $text-secondary;
+      font-size: 1.1rem;
+      max-width: 640px;
+    }
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.info-card {
+  background: $card-bg;
+  border-radius: 22px;
+  padding: 1.75rem;
+  box-shadow: 0 18px 34px -24px rgba(13, 148, 136, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.45rem;
+    color: $accent-teal;
+    font-weight: 700;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  li {
+    color: $text-secondary;
+    line-height: 1.65;
+
+    strong {
+      color: $text-primary;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    .chip {
+      background: rgba(13, 148, 136, 0.12);
+      color: $accent-teal;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(13, 148, 136, 0.3);
+      font-weight: 600;
+    }
+  }
+
+  &.scripture {
+    .verse {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin: 0;
+      color: $text-primary;
+    }
+
+    .reference {
+      margin: 0.75rem 0 0;
+      color: $accent-teal;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .application {
+      margin: 1rem 0 0;
+      color: $text-secondary;
+    }
+  }
+}
+
+.code-section {
+  background: $card-bg;
+  border-radius: 26px;
+  padding: 2rem;
+  box-shadow: $shadow;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.9rem;
+    color: $accent-teal;
+  }
+
+  .code-intro {
+    margin: 0;
+    color: $text-muted;
+  }
+
+  .code-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .code-card {
+    background: rgba(244, 255, 253, 0.96);
+    border-radius: 20px;
+    border: 2px solid rgba(13, 148, 136, 0.14);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 14px 30px -22px rgba(13, 148, 136, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px -24px rgba(13, 148, 136, 0.35);
+    }
+
+    pre {
+      margin: 0;
+      background: #0f172a;
+      border-radius: 16px;
+      padding: 1.1rem;
+      overflow-x: auto;
+      color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .code-card__header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      .code-card__role {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        align-self: flex-start;
+        background: rgba(13, 148, 136, 0.1);
+        color: $accent-teal;
+        border: 1px solid rgba(13, 148, 136, 0.18);
+      }
+
+      h3 {
+        margin: 0;
+        color: $text-primary;
+        font-size: 1.1rem;
+      }
+    }
+
+    .code-card__description {
+      margin: 0;
+      color: $text-muted;
+    }
+  }
+
+  .code-single {
+    pre {
+      background: #0f172a;
+      border-radius: 20px;
+      padding: 1.5rem;
+      color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+  }
+}
+
+.detail-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: $text-primary;
+  margin-top: 4rem;
+
+  &--error {
+    color: #dc2626;
+
+    mat-icon {
+      font-size: 3rem;
+    }
+  }
+
+  .back-link {
+    margin-top: 1rem;
+  }
+}
+
+.responsabilidade-modelo { border-color: rgba(249, 115, 22, 0.22); }
+.responsabilidade-contrato { border-color: rgba(56, 189, 248, 0.22); }
+.responsabilidade-validador { border-color: rgba(34, 197, 94, 0.22); }
+.responsabilidade-repositorio { border-color: rgba(14, 165, 233, 0.22); }
+.responsabilidade-infraestrutura { border-color: rgba(225, 29, 72, 0.22); }
+.responsabilidade-servico { border-color: rgba(245, 158, 11, 0.22); }
+.responsabilidade-extensao { border-color: rgba(20, 184, 166, 0.22); }
+.responsabilidade-implementacao { border-color: rgba(168, 85, 247, 0.22); }
+.responsabilidade-entrada { border-color: rgba(59, 130, 246, 0.22); }

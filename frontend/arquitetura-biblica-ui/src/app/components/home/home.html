@@ -1,0 +1,42 @@
+<div class="home-container">
+  <header class="header">
+    <h1>Princípios SOLID</h1>
+    <p class="subtitle">Escolha um princípio para estudá-lo com calma na próxima página.</p>
+  </header>
+
+  <section class="principles-grid">
+    <article *ngFor="let principio of principios"
+             class="principle-card"
+             role="button"
+             tabindex="0"
+             (click)="navegarParaDetalhes(principio)"
+             (keydown.enter)="navegarParaDetalhes(principio)"
+             (keydown.space)="navegarParaDetalhes(principio)">
+      <header class="principle-header">
+        <span class="sigla">{{ principio.sigla }}</span>
+        <h2>{{ principio.nome.split('(')[0].trim() }}</h2>
+      </header>
+      <p class="descricao">{{ principio.descricao }}</p>
+      <footer class="card-footer">
+        <div class="bible-reference">
+          <i class="fas fa-book"></i>
+          <span>{{ principio.referenciaBiblica }}</span>
+        </div>
+        <button mat-raised-button color="primary" (click)="$event.stopPropagation(); navegarParaDetalhes(principio)">
+          Estudar princípio
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </footer>
+    </article>
+  </section>
+
+  <div *ngIf="isLoading" class="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Carregando princípios...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <i class="fas fa-exclamation-triangle"></i>
+    <p>Ocorreu um erro ao carregar os princípios. Tente novamente mais tarde.</p>
+  </div>
+</div>
